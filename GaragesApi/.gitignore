@@ -1,0 +1,28 @@
+# Build Folders
+bin/
+obj/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+
+# Logs
+*.log
+
+# Secret / sensitive files
+appsettings.Development.json
+appsettings.Local.json
+
+# Entity Framework Migrations
+Migrations/
+
+# Others
+*.db
+*.bak
+
