@@ -16,13 +16,11 @@ namespace GaragesApi.Services
             _httpClientFactory = httpClientFactory;
         }
 
-        // מוסכים מהמסד המקומי
         public async Task<List<Garage>> GetAllAsync()
         {
             return await _context.Garages.ToListAsync();
         }
 
-        // מוסך יחיד למסד
         public async Task<Garage?> AddGarageAsync(Garage garage)
         {
             var exists = await _context.Garages.AnyAsync(g => g.ExternalId == garage.ExternalId);
@@ -33,7 +31,6 @@ namespace GaragesApi.Services
             return garage;
         }
 
-        // מוסכים מרובים למסד
         public async Task<List<Garage>> AddMultipleAsync(List<Garage> garages)
         {
             var toAdd = new List<Garage>();
@@ -53,7 +50,6 @@ namespace GaragesApi.Services
             return toAdd;
         }
 
-        // משיכה מה-API הממשלתי והוספה למסד רק אם לא קיימים
         public async Task<List<Garage>> SyncFromGovernmentAsync()
         {
             var garagesFromGov = await FetchGaragesFromGovernmentAsync();
@@ -61,13 +57,11 @@ namespace GaragesApi.Services
             return added;
         }
 
-        // רק קריאה מהממשלתי בלי קשר למסד
         public async Task<List<Garage>> GetAllFromGovernmentAsync()
         {
             return await FetchGaragesFromGovernmentAsync();
         }
 
-        // פונקציה פנימית שמבצעת את הקריאה ל-API הממשלתי
         private async Task<List<Garage>> FetchGaragesFromGovernmentAsync()
         {
             var client = _httpClientFactory.CreateClient();
