@@ -8,7 +8,16 @@ import { Garage } from '../../models/garage.model';
 @Component({
   selector: 'app-garage-multiselect',
   standalone: true,
+<<<<<<< HEAD
   imports: [CommonModule, FormsModule, MatFormFieldModule, MatSelectModule],
+=======
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatSelectModule
+  ],
+>>>>>>> 87b5252a9be3de2acd5e259e18bfadb0437652f1
   templateUrl: './garage-multiselect.component.html',
   styleUrls: ['./garage-multiselect.component.css']
 })
@@ -22,4 +31,8 @@ export class GarageMultiselectComponent {
     this.selectedGaragesChange.emit(this.selectedGarages);
     this.selectionChange.emit(event);
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 87b5252a9be3de2acd5e259e18bfadb0437652f1
