@@ -1,1 +1,8 @@
-<p>garage-multiselect works!</p>
+<mat-form-field appearance="fill" class="full-width">
+  <mat-label>בחירת מוסכים להוספה</mat-label>
+  <mat-select [(value)]="selectedGarages" multiple (selectionChange)="onSelectionChange($event)">
+    <mat-option *ngFor="let garage of garages" [value]="garage">
+      {{ garage.name }} ({{ garage.city }})
+    </mat-option>
+  </mat-select>
+</mat-form-field>

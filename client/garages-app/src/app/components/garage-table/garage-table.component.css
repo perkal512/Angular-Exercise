@@ -1,0 +1,8 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid var(--green-primary);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  font-size: 0.9rem;
+}

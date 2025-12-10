@@ -1,0 +1,6 @@
+mat-form-field {
+  width: 100%;
+  margin-bottom: var(--spacing-lg);
+  animation: fadeInDown var(--transition-normal);
+}
+
