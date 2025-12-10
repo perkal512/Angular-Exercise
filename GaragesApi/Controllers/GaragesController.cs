@@ -15,7 +15,7 @@ namespace GaragesApi.Controllers
             _service = service;
         }
 
-        [HttpPost("government-to-db")]
+        [HttpPost("gov-to-db")]
         public async Task<IActionResult> SyncFromGovernment()
         {
             try
@@ -29,7 +29,7 @@ namespace GaragesApi.Controllers
             }
         }
 
-        [HttpGet("all-government")]
+        [HttpGet("all-gov")]
         public async Task<IActionResult> GetAllFromGovernment()
         {
             try
