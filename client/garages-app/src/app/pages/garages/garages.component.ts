@@ -25,14 +25,16 @@ export class GaragesComponent implements OnInit {
 
   async loadAll() {
     this.loading = true;
-    try {
-      await this.state.loadLocalGarages();
-      await this.state.loadGovGarages();
-    } catch (err) {
-      this.snackBar.open('Error loading garages', 'Close', { duration: 4000 });
-    } finally {
-      this.loading = false;
-    }
+
+    const local = await this.state.loadLocalGarages();
+    const gov = await this.state.loadGovGarages();
+    if (!local.ok)
+      this.snackBar.open(local.message, 'סגור', { duration: 4000 });
+
+    if (!gov.ok)
+      this.snackBar.open(gov.message, 'סגור', { duration: 4000 });
+
+    this.loading = false;
   }
 
   async addSelectedGarages() {

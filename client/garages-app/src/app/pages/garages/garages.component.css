@@ -1,6 +1,7 @@
-h2 {
+h1 {
   font-weight: bold;
   color: var(--primary-color);
+  text-align: center;
 }
 
 .garages-container {
@@ -19,8 +20,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
-  padding-bottom: 1rem;
+  padding-bottom: 4rem;
   border-bottom: 2px solid var(--primary-color);
 }
 

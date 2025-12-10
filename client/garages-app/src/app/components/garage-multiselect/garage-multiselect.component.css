@@ -23,21 +23,21 @@ mat-form-field {
   text-align: right;
   padding: 4px 8px;
 }
-
+/* 
 .option-content {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
-}
-
+} */
+/* 
 .garage-name {
   font-weight: bold;
-}
+} */
 
-.garage-profession {
+/* .garage-profession {
   color: var(--accent-color);
   font-size: 0.9rem;
-}
+} */
 
 @media (max-width: 600px) {
   .option-content {

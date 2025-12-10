@@ -16,3 +16,9 @@ export interface Garage {
   testTime?: string;
   createdAt?: string;
 }
+
+export interface AppError {
+  message: string;
+  status?: number;
+  raw?: any; 
+}
