@@ -1,6 +1,47 @@
-mat-form-field {
+.full-width {
   width: 100%;
-  margin-bottom: var(--spacing-lg);
-  animation: fadeInDown var(--transition-normal);
 }
 
+mat-form-field {
+  padding: 0 0.5rem;
+  transition: all 0.3s ease-in-out;
+  background-color: var(--background-color);
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.mat-select-panel {
+  background-color: var(--teal-color);
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.mat-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: right;
+  padding: 4px 8px;
+}
+
+.option-content {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.garage-name {
+  font-weight: bold;
+}
+
+.garage-profession {
+  color: var(--accent-color);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  .option-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

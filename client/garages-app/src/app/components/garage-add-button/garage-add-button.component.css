@@ -1,35 +1,7 @@
-button {
-  width: 100%;
-  padding: var(--spacing-md);
-  margin-bottom: var(--spacing-md);
-  margin-top: var(--spacing-md);
-  font-size: 0.9rem;
-  font-weight: 600;
-  border-radius: var(--radius-md);
-  transition: all var(--transition-normal);
-  animation: slideInButton var(--transition-slow);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  position: relative;
-  z-index: 10;
-}
-
-@keyframes slideInButton {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.5);
-}
-
-button:active {
-  transform: translateY(-1px);
+.header-controls {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  gap: 1rem; 
+  border-bottom: 1px solid var(--border-color);
 }

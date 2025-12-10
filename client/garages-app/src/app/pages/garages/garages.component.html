@@ -1,22 +1,14 @@
-<div class="garages-container" *ngIf="!loading; else loadingTemplate">
+<div class="garages-container" *ngIf="!loading; else loadingTpl">
+  <h2>ניהול מוסכים</h2>
+  <div class="header-controls">
+    <app-garage-multiselect></app-garage-multiselect>
+    <button mat-raised-button color="primary" (click)="addSelectedGarages()">הוספת מוסכים</button>
+  </div>
 
-  <app-garage-multiselect
-    [garages]="allGovGarages"
-    [(selectedGarages)]="selectedGarages"
-    (selectionChange)="onSelectionChange($event)">
-  </app-garage-multiselect>
-
-  <app-garage-add-button
-    (addClick)="addSelectedGarages()">
-  </app-garage-add-button>
-
-  <app-garage-table
-    [garages]="localGarages">
-  </app-garage-table>
-
+  <app-garage-table></app-garage-table>
 </div>
 
-<ng-template #loadingTemplate>
+<ng-template #loadingTpl>
   <div class="loading-spinner">
     <mat-spinner></mat-spinner>
   </div>

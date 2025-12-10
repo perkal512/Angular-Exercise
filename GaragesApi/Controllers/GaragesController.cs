@@ -77,9 +77,13 @@ namespace GaragesApi.Controllers
         {
             try
             {
-                var added = await _service.AddMultipleAsync(garages);
-                if (added.Count == 0) return Conflict("All garage already exists");
-                return Ok(added);
+                var (added, notAdded) = await _service.AddMultipleAsync(garages);
+                if (added.Count == 0)
+                    return Conflict(new { message = "All garages already exist", notAdded });
+
+                if (notAdded.Count > 0)
+                    return Ok(new { message = "Some garages were not added because they already exist", added, notAdded });
+                return Ok(new { message = "All garages added successfully", added });
             }
             catch
             {
@@ -88,4 +92,3 @@ namespace GaragesApi.Controllers
         }
     }
 }
-
