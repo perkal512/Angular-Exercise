@@ -6,18 +6,18 @@ import { Garage } from '../models/garage.model';
 @Injectable({
   providedIn: 'root'
 })
-export class GarageService {
+export class GaragesService {
 
-  private apiUrl = 'https://localhost:5134/api/garages'; 
+  private apiUrl = 'http://localhost:5134/api/garages';
 
   constructor(private http: HttpClient) { }
 
-  getAllGarages(): Observable<Garage[]> {
-    return this.http.get<Garage[]>(`${this.apiUrl}/get-all`);
+  getLocalGarages(): Observable<Garage[]> {
+    return this.http.get<Garage[]>(`${this.apiUrl}/all-local`);
   }
 
-  getExternalGarages(): Observable<Garage[]> {
-    return this.http.get<Garage[]>(`${this.apiUrl}/garages-from-gov`);
+  getFromGovernment(): Observable<Garage[]> {
+    return this.http.get<Garage[]>(`${this.apiUrl}/all-gov`);
   }
 
   addGarage(garage: Garage): Observable<Garage> {

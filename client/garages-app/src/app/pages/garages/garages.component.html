@@ -1,1 +1,23 @@
-<p>garages works!</p>
+<div class="garages-container" *ngIf="!loading; else loadingTemplate">
+
+  <app-garage-multiselect
+    [garages]="allGovGarages"
+    [(selectedGarages)]="selectedGarages"
+    (selectionChange)="onSelectionChange($event)">
+  </app-garage-multiselect>
+
+  <app-garage-add-button
+    (addClick)="addSelectedGarages()">
+  </app-garage-add-button>
+
+  <app-garage-table
+    [garages]="localGarages">
+  </app-garage-table>
+
+</div>
+
+<ng-template #loadingTemplate>
+  <div class="loading-spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
