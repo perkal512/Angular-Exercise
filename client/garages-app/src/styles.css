@@ -1,0 +1,11 @@
+:root {
+  --primary-color: #4caf50;
+  --accent-color: #FF6F00;
+  --background-color: #F5F5F5;
+  --teal-color: #eff0ee;
+}
+
+body {
+  font-family: 'Noto Sans Hebrew', sans-serif;
+}
+ /* font-family: 'Noto Sans Hebrew', sans-serif; */

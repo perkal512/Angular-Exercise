@@ -1,8 +1,11 @@
-<mat-form-field appearance="fill" class="full-width">
-  <mat-label>בחירת מוסכים להוספה</mat-label>
-  <mat-select [(value)]="selectedGarages" multiple (selectionChange)="onSelectionChange($event)">
-    <mat-option *ngFor="let garage of garages" [value]="garage">
-      {{ garage.name }} ({{ garage.city }})
+<mat-form-field appearance="fill" class="full-width" [@fadeInOut]>
+  <mat-label class="choose">בחירת מוסכים להוספה</mat-label>
+  <mat-select [ngModel]="selectedGarages$ | async"
+              (ngModelChange)="onSelectionChange($event)"
+              multiple>
+    <mat-option *ngFor="let g of govGarages$ | async" [value]="g">
+      <span class="garage-option-name">{{ g.name }}</span>
+      <span class="garage-option-profession">- {{ g.profession }}</span>
     </mat-option>
   </mat-select>
 </mat-form-field>

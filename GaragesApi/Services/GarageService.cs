@@ -31,14 +31,18 @@ namespace GaragesApi.Services
             return garage;
         }
 
-        public async Task<List<Garage>> AddMultipleAsync(List<Garage> garages)
+        public async Task<(List<Garage> added, List<string> notAdded)> AddMultipleAsync(List<Garage> garages)
         {
             var toAdd = new List<Garage>();
+            var notAdded = new List<string>();
 
             foreach (var g in garages)
             {
                 var exists = await _context.Garages.AnyAsync(x => x.ExternalId == g.ExternalId);
-                if (!exists) toAdd.Add(g);
+                if (!exists)
+                    toAdd.Add(g);
+                else
+                    notAdded.Add(g.Name);
             }
 
             if (toAdd.Count > 0)
@@ -47,13 +51,13 @@ namespace GaragesApi.Services
                 await _context.SaveChangesAsync();
             }
 
-            return toAdd;
+            return (toAdd, notAdded);
         }
 
         public async Task<List<Garage>> SyncFromGovernmentAsync()
         {
             var garagesFromGov = await FetchGaragesFromGovernmentAsync();
-            var added = await AddMultipleAsync(garagesFromGov);
+            var (added, notAdded) = await AddMultipleAsync(garagesFromGov);
             return added;
         }
 

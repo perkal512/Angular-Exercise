@@ -1,6 +1,55 @@
-mat-form-field {
+/* .full-width {
   width: 100%;
-  margin-bottom: var(--spacing-lg);
-  animation: fadeInDown var(--transition-normal);
+  padding: 0 0.5rem;
+  transition: all 0.3s ease-in-out;
+  background-color: var(--background-color);
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
+.choose {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.mat-select-panel {
+  background-color: var(--teal-color);
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.mat-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: right;
+  padding: 4px 8px;
+} */
+
+
+.full-width {
+  width: 100%;
+  padding: 0 2%; /* במקום 0.5rem */
+  transition: all 0.3s ease-in-out;
+  background-color: var(--background-color);
+  border-radius: 1%; /* בערך 6px */
+  box-shadow: 0 0.5vw 1vw rgba(0,0,0,0.1);
+}
+
+.mat-select-panel {
+  background-color: var(--teal-color);
+  border-radius: 1%;
+  box-shadow: 0 0.5vw 1vw rgba(0,0,0,0.1);
+}
+
+.mat-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: right;
+  padding: 0.5vh 1vw;
+}
+
+.choose {
+  font-weight: bold;
+}
