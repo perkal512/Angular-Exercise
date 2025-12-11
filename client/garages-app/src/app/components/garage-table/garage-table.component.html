@@ -1,7 +1,7 @@
 <div class="table-wrapper">
   <mat-form-field appearance="fill" class="full-width">
     <mat-label>סנן לפי קוד מוסך, שם, כתובת או תחום</mat-label>
-    <input matInput (keyup)="dataSource.filter = $any($event.target).value.trim().toLowerCase()">
+    <input matInput (keyup)="dataSource.filter = $any($event.target).value.trim().toLowerCase()" #filterInput>
   </mat-form-field>
   <table mat-table [dataSource]="dataSource" matSort>
 
@@ -33,6 +33,8 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let r; columns: displayedColumns;" @fadeInOut></tr>
   </table>
-  
+  <div *ngIf="dataSource.filteredData.length === 0" class="no-results-message">
+    אין תוצאות להצגה
+  </div>
 
 </div>
