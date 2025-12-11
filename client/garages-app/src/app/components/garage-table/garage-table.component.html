@@ -1,29 +1,40 @@
-<table mat-table [dataSource]="garages" class="mat-elevation-z8 full-width">
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef>שם מוסך</th>
-    <td mat-cell *matCellDef="let garage">{{ garage.name }}</td>
-  </ng-container>
+<div class="table-wrapper">
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>סנן לפי קוד מוסך, שם, כתובת או תחום</mat-label>
+    <input matInput (keyup)="dataSource.filter = $any($event.target).value.trim().toLowerCase()" #filterInput>
+  </mat-form-field>
+  <table mat-table [dataSource]="dataSource" matSort>
 
-  <ng-container matColumnDef="city">
-    <th mat-header-cell *matHeaderCellDef>עיר</th>
-    <td mat-cell *matCellDef="let garage">{{ garage.city }}</td>
-  </ng-container>
+    <ng-container matColumnDef="misparMosah">
+      <th mat-header-cell *matHeaderCellDef>קוד מוסך</th>
+      <td mat-cell *matCellDef="let garage">{{ garage.misparMosah }}</td>
+    </ng-container>
 
-  <ng-container matColumnDef="address">
-    <th mat-header-cell *matHeaderCellDef>כתובת</th>
-    <td mat-cell *matCellDef="let garage">{{ garage.address }}</td>
-  </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>שם</th>
+      <td mat-cell *matCellDef="let garage">{{ garage.name }}</td>
+    </ng-container>
 
-  <ng-container matColumnDef="profession">
-    <th mat-header-cell *matHeaderCellDef>מקצוע ראשי</th>
-    <td mat-cell *matCellDef="let garage">{{ garage.profession }}</td>
-  </ng-container>
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef>כתובת</th>
+      <td mat-cell *matCellDef="let garage">{{ garage.address }}</td>
+    </ng-container>
 
-  <ng-container matColumnDef="manager">
-    <th mat-header-cell *matHeaderCellDef>מנהל</th>
-    <td mat-cell *matCellDef="let garage">{{ garage.manager }}</td>
-  </ng-container>
+    <ng-container matColumnDef="profession">
+      <th mat-header-cell *matHeaderCellDef>תחום</th>
+      <td mat-cell *matCellDef="let garage">{{ garage.profession }}</td>
+    </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+    <ng-container matColumnDef="manager">
+      <th mat-header-cell *matHeaderCellDef>מנהל</th>
+      <td mat-cell *matCellDef="let garage">{{ garage.manager }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let r; columns: displayedColumns;" @fadeInOut></tr>
+  </table>
+  <div *ngIf="dataSource.filteredData.length === 0" class="no-results-message">
+    אין תוצאות להצגה
+  </div>
+
+</div>

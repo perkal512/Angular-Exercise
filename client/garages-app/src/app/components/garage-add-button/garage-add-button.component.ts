@@ -10,15 +10,8 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class GarageAddButtonComponent {
   @Output() addClick = new EventEmitter<void>();
-<<<<<<< HEAD
-  onAddClick() {
-    this.addClick.emit();
-  }
-}
-=======
 
   onAddClick() {
     this.addClick.emit();
   }
 }
->>>>>>> 87b5252a9be3de2acd5e259e18bfadb0437652f1
