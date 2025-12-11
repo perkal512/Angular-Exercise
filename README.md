@@ -25,16 +25,27 @@ FullStack garage management system with ASP.NET Core backend and Angular 17 fron
     - The separation ensures a clean architecture.
 
 ## Running
-1. **Backend**
-cd GARAGESAPI
-dotnet restore
-dotnet run
 
-URL: `http://localhost:5134/api/garages`
+- **Backend:**
 
-2. **Frontend**
-cd CLIENT/GARAGES-APP
-npm install
-ng serve
+1. Open a terminal in GARAGESAPI/
+2. Restore packages:
+   dotnet restore
+3. Run the backend:
+   dotnet run
+4. API URL: http://localhost:5134/api/garages
 
-Open `http://localhost:4200` in a browser
+- **Frontend:**
+ 
+1. Open a terminal in CLIENT/GARAGES-APP/
+2. Install dependencies:
+   npm install
+3. Run the Angular development server:
+   ng serve
+4. Open in browser: http://localhost:4200
+
+Notes
+-----
+- Make sure the backend is running before starting the frontend.
+- All SQL operations are asynchronous.
+- Ensure the connection string points to your local SQL Server.
