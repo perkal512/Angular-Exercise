@@ -1,5 +1,5 @@
 <mat-form-field appearance="fill" class="full-width" [@fadeInOut]>
-  <mat-label>בחירת מוסכים להוספה</mat-label>
+  <mat-label class="choose">בחירת מוסכים להוספה</mat-label>
   <mat-select [ngModel]="selectedGarages$ | async"
               (ngModelChange)="onSelectionChange($event)"
               multiple>

@@ -7,7 +7,7 @@ import { Garage } from '../models/garage.model';
 export class GaragesService {
   private apiUrl = 'http://localhost:5134/api/garages';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   fetchLocalGarages(): Observable<Garage[]> {
     return this.http.get<Garage[]>(`${this.apiUrl}/all-local`);
@@ -15,6 +15,10 @@ export class GaragesService {
 
   fetchGovGarages(): Observable<Garage[]> {
     return this.http.get<Garage[]>(`${this.apiUrl}/all-gov`);
+  }
+
+  addGarage(garage: Garage): Observable<Garage> {
+    return this.http.post<Garage>(`${this.apiUrl}/add`, garage);
   }
 
   addMultipleGarages(garages: Garage[]): Observable<{ added: Garage[], notAdded: string[], message?: string }> {

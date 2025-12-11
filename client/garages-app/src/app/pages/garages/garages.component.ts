@@ -5,12 +5,17 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { GarageMultiselectComponent } from '../../components/garage-multiselect/garage-multiselect.component';
 import { GarageTableComponent } from '../../components/garage-table/garage-table.component';
 import { GaragesStateService } from '../../services/garages-state-service.service';
+import { GarageAddButtonComponent } from '../../components/garage-add-button/garage-add-button.component';
 
 @Component({
   selector: 'app-garages',
   standalone: true,
-  imports: [CommonModule, MatSnackBarModule, MatProgressSpinnerModule,
-    GarageMultiselectComponent, GarageTableComponent],
+  imports: [CommonModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
+    GarageMultiselectComponent,
+    GarageTableComponent,
+    GarageAddButtonComponent],
   templateUrl: './garages.component.html',
   styleUrls: ['./garages.component.css']
 })
@@ -25,16 +30,14 @@ export class GaragesComponent implements OnInit {
 
   async loadAll() {
     this.loading = true;
-
-    const local = await this.state.loadLocalGarages();
-    const gov = await this.state.loadGovGarages();
-    if (!local.ok)
-      this.snackBar.open(local.message, 'סגור', { duration: 4000 });
-
-    if (!gov.ok)
-      this.snackBar.open(gov.message, 'סגור', { duration: 4000 });
-
-    this.loading = false;
+    try {
+      await this.state.loadLocalGarages();
+      await this.state.loadGovGarages();
+    } catch (err) {
+      this.snackBar.open('Error loading garages', 'Close', { duration: 4000 });
+    } finally {
+      this.loading = false;
+    }
   }
 
   async addSelectedGarages() {
@@ -48,4 +51,5 @@ export class GaragesComponent implements OnInit {
       this.loading = false;
     }
   }
+  
 }

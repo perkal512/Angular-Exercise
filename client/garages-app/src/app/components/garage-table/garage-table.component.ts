@@ -36,18 +36,11 @@ export class GarageTableComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private state: GaragesStateService) { }
-
-
+  constructor(private state: GaragesStateService) {}
+  
   ngOnInit(): void {
     this.localGarages$.subscribe(garages => {
       this.dataSource.data = garages;
-
-      Promise.resolve().then(() => {
-        if (this.paginator) {
-          this.paginator._changePageSize(this.paginator.pageSize);
-        }
-      });
     });
   }
 
@@ -55,4 +48,5 @@ export class GarageTableComponent implements AfterViewInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
+  
 }

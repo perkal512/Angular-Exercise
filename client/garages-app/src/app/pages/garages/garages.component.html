@@ -2,9 +2,10 @@
   <h1>ניהול מוסכים</h1>
   <div class="header-controls">
     <app-garage-multiselect></app-garage-multiselect>
-    <button mat-raised-button color="primary" (click)="addSelectedGarages()">הוספת מוסכים</button>
+    <app-garage-add-button (addClick)="addSelectedGarages()"></app-garage-add-button>
   </div>
 
+  <h3>מוסכים השמורים במערכת</h3>
   <app-garage-table></app-garage-table>
 </div>
 
